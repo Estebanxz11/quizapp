@@ -5,6 +5,7 @@ namespace App\Providers;
 use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 use ConsoleTVs\Charts\Registrar as Charts;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(Charts $charts)
     {
+        Schema::defaultStringLength(191);
         $charts->register([
             \App\Charts\UserQuiz::class,
             \App\Charts\GlobalQuizzes::class,
